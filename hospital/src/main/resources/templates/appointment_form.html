@@ -1,0 +1,17 @@
+<!-- templates/appointment_form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Appointment</title>
+</head>
+<body>
+<h1>Create Appointment</h1>
+<form action="/appointments" method="post" th:object="${appointment}">
+    Patient Name: <input type="text" th:field="*{patientName}"/><br/>
+    Doctor Name: <input type="text" th:field="*{doctorName}"/><br/>
+    Time: <input type="datetime-local" th:field="*{appointmentTime}"/><br/>
+    Reason: <input type="text" th:field="*{reason}"/><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

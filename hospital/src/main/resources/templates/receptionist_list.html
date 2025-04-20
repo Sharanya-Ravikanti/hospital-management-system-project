@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Receptionist List</title>
+</head>
+<body>
+<h2>Receptionists</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="r : ${receptionists}">
+            <td th:text="${r.id}"></td>
+            <td th:text="${r.name}"></td>
+            <td th:text="${r.contact}"></td>
+            <td th:text="${r.email}"></td>
+        </tr>
+    </tbody>
+</table>
+<a href="/receptionists/create">Add Receptionist</a>
+</body>
+</html>

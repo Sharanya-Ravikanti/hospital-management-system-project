@@ -1,0 +1,31 @@
+<!-- templates/appointment.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Appointments</title>
+</head>
+<body>
+<h1>Appointments</h1>
+<a href="/appointments/new">Create New Appointment</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Patient Name</th>
+        <th>Doctor Name</th>
+        <th>Time</th>
+        <th>Reason</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="appointment : ${appointments}">
+        <td th:text="${appointment.id}"></td>
+        <td th:text="${appointment.patientName}"></td>
+        <td th:text="${appointment.doctorName}"></td>
+        <td th:text="${appointment.appointmentTime}"></td>
+        <td th:text="${appointment.reason}"></td>
+        <td>
+            <a th:href="@{'/appointments/delete/' + ${appointment.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

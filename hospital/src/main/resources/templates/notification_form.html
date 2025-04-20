@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Notification</title>
+</head>
+<body>
+<h2>Send Notification</h2>
+<form th:action="@{/notifications/save}" th:object="${notification}" method="post">
+    <label>Patient:</label>
+    <select th:field="*{patient}">
+        <option th:each="p : ${patients}" th:value="${p}" th:text="${p.name}"></option>
+    </select><br/>
+
+    <label>Message:</label>
+    <textarea th:field="*{message}" required></textarea><br/>
+
+    <button type="submit">Send</button>
+</form>
+</body>
+</html>

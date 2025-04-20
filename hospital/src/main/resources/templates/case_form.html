@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Treatment Case</title>
+</head>
+<body>
+<h2>New Treatment Case</h2>
+<form th:action="@{/cases/save}" th:object="${caseObj}" method="post">
+    <label>Patient:</label>
+    <select th:field="*{patient}">
+        <option th:each="p : ${patients}" th:value="${p}" th:text="${p.name}"></option>
+    </select><br/>
+
+    <label>Doctor:</label>
+    <select th:field="*{doctor}">
+        <option th:each="d : ${doctors}" th:value="${d}" th:text="${d.name}"></option>
+    </select><br/>
+
+    <label>Case Details:</label>
+    <textarea th:field="*{caseDetails}" required></textarea><br/>
+
+    <label>Date Opened:</label>
+    <input type="date" th:field="*{dateOpened}" required/><br/>
+
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

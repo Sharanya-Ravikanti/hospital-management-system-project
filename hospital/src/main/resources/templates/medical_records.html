@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Medical Records</title>
+</head>
+<body>
+<h2>All Medical Records</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Diagnosis</th>
+            <th>Treatment</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="rec : ${records}">
+            <td th:text="${rec.id}"></td>
+            <td th:text="${rec.patient.name}"></td>
+            <td th:text="${rec.diagnosis}"></td>
+            <td th:text="${rec.treatment}"></td>
+            <td th:text="${rec.reportDate}"></td>
+        </tr>
+    </tbody>
+</table>
+<a href="/medical-records/create">Add New Record</a>
+</body>
+</html>

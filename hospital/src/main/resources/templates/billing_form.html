@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Bill</title>
+</head>
+<body>
+<h2>Create New Billing</h2>
+<form th:action="@{/billings/save}" th:object="${billing}" method="post">
+    <label>Patient:</label>
+    <select th:field="*{patient}">
+        <option th:each="pat : ${patients}" th:value="${pat}" th:text="${pat.name}"></option>
+    </select><br/>
+
+    <label>Amount:</label>
+    <input type="number" step="0.01" th:field="*{amount}" required/><br/>
+
+    <label>Billing Date:</label>
+    <input type="date" th:field="*{billingDate}" required/><br/>
+
+    <label>Description:</label>
+    <input type="text" th:field="*{description}" /><br/>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

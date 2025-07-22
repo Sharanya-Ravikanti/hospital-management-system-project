@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Case Handling</title>
+</head>
+<body>
+<h2>Treatment Cases</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Details</th>
+            <th>Date Opened</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="c : ${cases}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.patient.name}"></td>
+            <td th:text="${c.doctor.name}"></td>
+            <td th:text="${c.caseDetails}"></td>
+            <td th:text="${c.dateOpened}"></td>
+        </tr>
+    </tbody>
+</table>
+<a href="/cases/create">Add New Case</a>
+</body>
+</html>

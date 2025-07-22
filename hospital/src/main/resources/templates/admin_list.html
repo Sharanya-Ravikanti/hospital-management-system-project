@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admins</title>
+</head>
+<body>
+<h2>Administrator List</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    <tr th:each="a : ${admins}">
+        <td th:text="${a.id}"></td>
+        <td th:text="${a.name}"></td>
+        <td th:text="${a.email}"></td>
+        <td th:text="${a.phone}"></td>
+    </tr>
+</table>
+<a href="/admins/create">Add Admin</a>
+</body>
+</html>
